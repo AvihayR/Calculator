@@ -1,0 +1,68 @@
+body{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+h3{
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    padding: 15px 10px;
+    border-radius: 1em;
+    box-shadow: 4px 4px rgba(154, 154, 154, 0.571);
+    background: rgb(131,58,180);
+    background: linear-gradient(185deg, rgba(131,58,180,1) 0%, rgba(255,50,132,1) 51%, rgba(252,225,69,1) 100%);
+}
+
+.result{
+    background-color: rgba(192, 192, 192, 0.661);
+    opacity: 0.8;
+    min-width: 90%;
+    padding: 0.3rem;
+    box-shadow: 3px 3px rgba(115, 111, 111, 0.519);
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.buttons{
+    display: flex;
+    max-width: 90%;
+}
+
+.btn-numbers{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    min-width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vw;
+    flex: 1;
+}
+
+.btn-operators{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    margin: 0.1em;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.233);
+    opacity: 0.9;
+    box-shadow: 1.5px 2px rgba(59, 58, 58, 0.348);
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
