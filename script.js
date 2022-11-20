@@ -1,3 +1,9 @@
+let buttons = document.querySelectorAll('.buttons');
+buttons = Array.from(buttons)
+
+const resultScreen = document.querySelector('.result');
+const resultScreenP = resultScreen.querySelector('.result-p')
+
 function add(firstNum,secondNum){
     return firstNum + secondNum;
 };
@@ -31,4 +37,22 @@ function operate(func,firstNum,secondNum){
         case "null":
             return;
     }
+};
+
+let numList = [];
+
+function addToResultScreen(e){
+    //console.log(e.target.textContent);
+    //console.log(isNaN(e.target.textContent))
+    if(!isNaN(e.target.textContent)){
+    numList.push(e.target.textContent)};
+    resultScreenP.textContent = numList;
 }
+
+buttons.forEach(button => {
+    button.addEventListener('click',addToResultScreen);
+});
+
+
+
+

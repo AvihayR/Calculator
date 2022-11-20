@@ -5,6 +5,8 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100%;
+    font-family: sans-serif;
+    font-size: 2.5vw;
 }
 h3{
     padding: 0;
@@ -14,36 +16,56 @@ h3{
 .main{
     display: flex;
     flex-direction: column;
+    flex-grow: 0;
     max-width: 90%;
-    padding: 15px 10px;
+    padding: 25px 10px;
     border-radius: 1em;
-    box-shadow: 4px 4px rgba(154, 154, 154, 0.571);
-    background: rgb(131,58,180);
-    background: linear-gradient(185deg, rgba(131,58,180,1) 0%, rgba(255,50,132,1) 51%, rgba(252,225,69,1) 100%);
+    box-shadow: 4px 4px 8px rgba(228, 228, 228, 0.571);
+    background-color: #3D2B3D;
 }
 
 .result{
-    background-color: rgba(192, 192, 192, 0.661);
+    background-color: #635D5C;
     opacity: 0.8;
     min-width: 90%;
+    max-width: 90%;
+    min-height: 5vw;
     padding: 0.3rem;
-    box-shadow: 3px 3px rgba(115, 111, 111, 0.519);
+    box-shadow: 3px 3px rgba(127, 125, 125, 0.519);
     border-radius: 0.3rem;
     margin-bottom: 0.5rem;
+    flex-grow: 0;
+    overflow:hidden;
+}
+
+.result-p{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 20px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #CBEFB6;
 }
 
 .buttons{
     display: flex;
-    max-width: 90%;
+    max-width: 100%;
+    flex: 1;
+    justify-content: space-between;
 }
 
-.btn-numbers{
+.btn-left{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    min-width: 80%;
     justify-content: center;
     align-items: center;
-    margin: 0.5vw;
+}
+
+.btn-low{
+    display: flex;
     flex: 1;
 }
 
@@ -52,17 +74,25 @@ h3{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
 }
 
 button{
-    margin: 0.1em;
+    margin: 0.2em;
     border-radius: 5px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.233);
-    opacity: 0.9;
-    box-shadow: 1.5px 2px rgba(59, 58, 58, 0.348);
+    color: #FBFBFF;
+    background-color: #635D5C;
+    box-shadow: 1.5px 2px rgba(35, 34, 34, 0.348);
     display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
+    padding: 0.4em 0.7em;
+
+}
+
+.op{
+    background-color: #CBEFB6;
+    color: #635D5C;
 }
