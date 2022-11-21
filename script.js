@@ -1,8 +1,12 @@
-let buttons = document.querySelectorAll('.buttons');
-buttons = Array.from(buttons)
+let numButtons = document.querySelectorAll('.num');
+numButtons = Array.from(numButtons);
 
-const resultScreen = document.querySelector('.result');
-const resultScreenP = resultScreen.querySelector('.result-p')
+let opButtons = document.querySelectorAll('.op');
+opButtons = Array.from(opButtons);
+
+const displayScreen = document.querySelector('.display');
+const resultScreenP = displayScreen.querySelector('.result-p');
+const topResult = displayScreen.querySelector('.top-result');
 
 function add(firstNum,secondNum){
     return firstNum + secondNum;
@@ -28,7 +32,7 @@ function operate(func,firstNum,secondNum){
         case "-":
             return subtract(firstNum,secondNum);
             break;
-        case "*":
+        case "X":
             return multiply(firstNum, secondNum);
             break;
         case "/":
@@ -39,20 +43,39 @@ function operate(func,firstNum,secondNum){
     }
 };
 
-let numList = [];
+
+let numArray = [];
 
 function addToResultScreen(e){
-    //console.log(e.target.textContent);
-    //console.log(isNaN(e.target.textContent))
-    if(!isNaN(e.target.textContent)){
-    numList.push(e.target.textContent)};
-    resultScreenP.textContent = numList;
+    if(numArray.includes(".") && e.target.textContent == "."){
+        return}else{
+    numArray.push(e.target.textContent)};
+    resultScreenP.textContent = numArray.join("");
 }
 
-buttons.forEach(button => {
+numButtons.forEach(button => {
     button.addEventListener('click',addToResultScreen);
 });
 
+function clearNumArray(){
+   numArray.length = 0;
+   resultScreenP.textContent = "";
+};
+
+let chosenOperator;
+let numsBeforeOp;
+let numsAfterOp = numArray;
+
+function operateNums(e){
+    chosenOperator = e.target.textContent;
+    numsBeforeOp = numArray.join("");
+    topResult.textContent = (numsBeforeOp + chosenOperator);
+    clearNumArray();
+};
+
+opButtons.forEach(button => {
+    button.addEventListener('click',operateNums);
+})
 
 
 

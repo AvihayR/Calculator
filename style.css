@@ -6,48 +6,58 @@ body{
     align-items: center;
     min-height: 100%;
     font-family: sans-serif;
-    font-size: 2.5vw;
+    font-size: 0.9rem;
 }
 h3{
     padding: 0;
     margin: 0;
 }
 
+P{
+    padding: 0;
+    margin: 0;
+}
 .main{
     display: flex;
     flex-direction: column;
     flex-grow: 0;
     max-width: 90%;
-    padding: 25px 10px;
+    padding: 15px 10px;
     border-radius: 1em;
-    box-shadow: 4px 4px 8px rgba(228, 228, 228, 0.571);
+    box-shadow: 4px 4px 30px #D0FFCE;
     background-color: #3D2B3D;
 }
 
-.result{
+.display{
     background-color: #635D5C;
     opacity: 0.8;
     min-width: 90%;
     max-width: 90%;
-    min-height: 5vw;
+    min-height: 2.3em;
+    max-height: 2.3em;
     padding: 0.3rem;
     box-shadow: 3px 3px rgba(127, 125, 125, 0.519);
-    border-radius: 0.3rem;
+    border-radius: 0.4rem;
     margin-bottom: 0.5rem;
     flex-grow: 0;
     overflow:hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .result-p{
     display: flex;
-    flex-wrap: wrap;
-    max-width: 20px;
-    padding: 0;
-    margin: 0;
+    max-width: 5rem;
+    margin-top: 3px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     color: #CBEFB6;
+}
+
+.top-result{
+    color: #dddddd;
 }
 
 .buttons{
@@ -69,7 +79,7 @@ h3{
     flex: 1;
 }
 
-.btn-operators{
+.btn-right{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,11 +98,18 @@ button{
     flex: 1;
     justify-content: center;
     align-items: center;
-    padding: 0.4em 0.7em;
+    padding: 0.7em 0.9em;
 
 }
 
-.op{
+.op , .dot , .equals{
     background-color: #CBEFB6;
     color: #635D5C;
+    font-weight: bolder;
+}
+
+.clear{
+    background-color: #9b1d1fb4;
+    color: #d2d2d2;
+    font-weight: bolder;
 }
