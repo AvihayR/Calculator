@@ -5,8 +5,8 @@ let opButtons = document.querySelectorAll('.op');
 opButtons = Array.from(opButtons);
 
 const displayScreen = document.querySelector('.display');
-const resultScreenP = displayScreen.querySelector('.result-p');
-const topResult = displayScreen.querySelector('.top-result');
+const bottomDisplay = displayScreen.querySelector('.bottom-display');
+const topDisplay = displayScreen.querySelector('.top-display');
 
 function add(firstNum,secondNum){
     return firstNum + secondNum;
@@ -45,32 +45,33 @@ function operate(func,firstNum,secondNum){
 
 
 let numArray = [];
+let usedNums = {
+    chosenOperator: undefined,
+    numsBeforeOp: null,
+    numsAfterOp: [],
+};
 
-function addToResultScreen(e){
+function addToBottomDisplay(e){
     if(numArray.includes(".") && e.target.textContent == "."){
-        return}else{
+        return;}
+        else{
     numArray.push(e.target.textContent)};
-    resultScreenP.textContent = numArray.join("");
+    bottomDisplay.textContent = numArray.join("");
 }
 
 numButtons.forEach(button => {
-    button.addEventListener('click',addToResultScreen);
+    button.addEventListener('click',addToBottomDisplay);
 });
 
-function clearNumArray(){
-   numArray.length = 0;
-   resultScreenP.textContent = "";
-};
-
-let chosenOperator;
-let numsBeforeOp;
-let numsAfterOp = numArray;
+//function clearNumArray(){
+  // numArray.length = 0;
+  // resultScreenP.textContent = "";
+//};
 
 function operateNums(e){
-    chosenOperator = e.target.textContent;
-    numsBeforeOp = numArray.join("");
-    topResult.textContent = (numsBeforeOp + chosenOperator);
-    clearNumArray();
+    usedNums.chosenOperator = e.target.textContent;
+    usedNums.numsBeforeOp = numArray.join("");
+    topDisplay.textContent = (usedNums.numsBeforeOp + usedNums.chosenOperator);
 };
 
 opButtons.forEach(button => {
