@@ -45,34 +45,37 @@ function operate(func,firstNum,secondNum){
 
 
 let numArray = [];
-let usedNums = {
+let displayNumber
+
+
+let tools = {
     chosenOperator: undefined,
     numsBeforeOp: null,
-    numsAfterOp: [],
+    numsAfterOp: null,
 };
 
-function addToBottomDisplay(e){
+function populateDisplay(e){
     if(numArray.includes(".") && e.target.textContent == "."){
-        return;}
-        else{
+        return; 
+    }else{
     numArray.push(e.target.textContent)};
-    bottomDisplay.textContent = numArray.join("");
+    tools.numsAfterOp = bottomDisplay.textContent = numArray.join("");
+    
 }
 
 numButtons.forEach(button => {
-    button.addEventListener('click',addToBottomDisplay);
+    button.addEventListener('click',populateDisplay);
 });
 
-//function clearNumArray(){
-  // numArray.length = 0;
-  // resultScreenP.textContent = "";
-//};
 
 function operateNums(e){
-    usedNums.chosenOperator = e.target.textContent;
-    usedNums.numsBeforeOp = numArray.join("");
-    topDisplay.textContent = (usedNums.numsBeforeOp + usedNums.chosenOperator);
+    tools.chosenOperator = e.target.textContent;
+    tools.numsBeforeOp = numArray.join("");
+    numArray.length = 0;
+    topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
+    
 };
+
 
 opButtons.forEach(button => {
     button.addEventListener('click',operateNums);
