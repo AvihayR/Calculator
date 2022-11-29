@@ -9,6 +9,7 @@ const bottomDisplay = displayScreen.querySelector('.bottom-display');
 const topDisplay = displayScreen.querySelector('.top-display');
 
 const equalBtn = document.body.querySelector('.equals');
+const clearBtn = document.body.querySelector('.clear');
 
 
 let numArray = [];
@@ -88,12 +89,13 @@ opButtons.forEach(button => {
 function cleanScreen(){
     topDisplay.textContent = "";
     bottomDisplay.textContent = "";
-    numArray = tools.calculatedNum;
+    numArray.length = 0;
+    numArray.push(tools.calculatedNum);
 }
 
 function calculate(first,op,second){
-   tools.calculatedNum = operate(parseInt(tools.numsBeforeOp),tools.chosenOperator,parseInt(tools.numsAfterOp));
-   tools.calculatedNum = tools.calculatedNum.toString();
+   tools.calculatedNum = operate(parseInt(tools.numsBeforeOp),tools.chosenOperator,parseInt(tools.numsAfterOp)).toString();
+   //tools.calculatedNum = tools.calculatedNum.toString();
    tools.numsBeforeOp = tools.calculatedNum;
    tools.chosenOperator = null;
    tools.numsAfterOp = null;
@@ -105,6 +107,18 @@ function calculate(first,op,second){
 }
 
 equalBtn.addEventListener('click',calculate);
+
+
+function clear(){
+    for(let property in tools){
+        tools[property] = null;
+    }
+    cleanScreen()
+};
+
+clearBtn.addEventListener('click',clear)
+
+
 
 
 

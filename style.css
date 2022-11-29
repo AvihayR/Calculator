@@ -59,6 +59,7 @@ P{
 
 .top-display{
     color: #dddddd;
+    max-width: 5rem;
 }
 
 .buttons{
@@ -100,16 +101,17 @@ button{
     justify-content: center;
     align-items: center;
     padding: 0.7em 0.9em;
-    transition: transform 50ms, box-shadow 50ms;
+    transition: transform 70ms, box-shadow 50ms;
 }
 
 button:hover{
     transform: translate(2px,2px);
-    box-shadow: 2px 2px #121212;
+    box-shadow: 3px 3px #121212;
 }
 
 button:active{
     transform: translate(3px,3px);
+    box-shadow: 2px 2px #121212;
     opacity: 0.8;
 }
 
