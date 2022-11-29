@@ -73,18 +73,25 @@ numButtons.forEach(button => {
 
 
 function operateNums(e){
+    if(tools.chosenOperator != null){
+        calculate();
+    }
     tools.chosenOperator = e.target.textContent;
     tools.numsBeforeOp = numArray.join("");
     numArray.length = 0;
     topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
+    bottomDisplay.textContent = "";
     
 };
-
 
 opButtons.forEach(button => {
     button.addEventListener('click',operateNums);
 })
-
+ 
+ opButtons.forEach(button => {
+     button.addEventListener('click',opTwice);
+ })
+ 
 
 function cleanScreen(){
     topDisplay.textContent = "";
@@ -95,7 +102,6 @@ function cleanScreen(){
 
 function calculate(first,op,second){
    tools.calculatedNum = operate(parseInt(tools.numsBeforeOp),tools.chosenOperator,parseInt(tools.numsAfterOp)).toString();
-   //tools.calculatedNum = tools.calculatedNum.toString();
    tools.numsBeforeOp = tools.calculatedNum;
    tools.chosenOperator = null;
    tools.numsAfterOp = null;
@@ -117,6 +123,8 @@ function clear(){
 };
 
 clearBtn.addEventListener('click',clear)
+
+
 
 
 

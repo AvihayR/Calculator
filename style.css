@@ -105,13 +105,14 @@ button{
 }
 
 button:hover{
-    transform: translate(2px,2px);
+    transform: translate(2px,1px);
     box-shadow: 3px 3px #121212;
+    filter: brightness(120%);
 }
 
 button:active{
     transform: translate(3px,3px);
-    box-shadow: 2px 2px #121212;
+    box-shadow: 1px 1px #121212;
     opacity: 0.8;
 }
 
