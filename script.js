@@ -19,6 +19,7 @@ let tools = {
     numsBeforeOp: null,
     numsAfterOp: null,
     calculatedNum: null,
+    isOp: false,
 };
 
 
@@ -61,10 +62,13 @@ function operate(firstNum,op,secondNum){
 function populateDisplay(e){
     if(numArray.includes(".") && e.target.textContent == "."){
         return; 
+    }else if(tools.isOp == true){
+        numArray.push(e.target.textContent);
+        tools.numsAfterOp = bottomDisplay.textContent = numArray.join("");
     }else{
-    numArray.push(e.target.textContent)};
-    tools.numsAfterOp = bottomDisplay.textContent = numArray.join("");
-    
+        numArray.push(e.target.textContent);
+        tools.numsBeforeOp = bottomDisplay.textContent = numArray.join("");
+    }
 }
 
 numButtons.forEach(button => {
@@ -73,20 +77,31 @@ numButtons.forEach(button => {
 
 
 function operateNums(e){
-    if(tools.chosenOperator != null){
+    if(tools.numsAfterOp == null && tools.isOp == true){
+        tools.chosenOperator = e.target.textContent;
+        topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
+    }
+    else if(tools.numsBeforeOp != null && tools.isOp == true && tools.numsAfterOp != null){
         calculate();
+        cleanScreen()
+        numArray.length = 0;
+        tools.chosenOperator = e.target.textContent;
+        topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
+    }
+    else if(tools.chosenOperator != null){
         tools.chosenOperator = e.target.textContent;
         topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
         numArray.length = 0;
         bottomDisplay.textContent = "";
-
-
+        calculate();
     }else{
     tools.chosenOperator = e.target.textContent;
-    tools.numsBeforeOp = numArray.join("");
+    //tools.numsBeforeOp = numArray.join("");
     numArray.length = 0;
     topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
     bottomDisplay.textContent = "";
+    tools.isOp = true;
+
     };
     
 };
@@ -107,11 +122,12 @@ function calculate(first,op,second){
    tools.numsBeforeOp = tools.calculatedNum;
    tools.chosenOperator = null;
    tools.numsAfterOp = null;
+   bottomDisplay.textContent = tools.calculatedNum;
    cleanScreen();
    numArray.length = 0;
    bottomDisplay.textContent = tools.calculatedNum;
 
-   numArray = tools.calculatedNum.split('');
+   //numArray = tools.calculatedNum.split('');
 }
 
 equalBtn.addEventListener('click',calculate);
