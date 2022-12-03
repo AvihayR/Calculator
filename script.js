@@ -81,6 +81,9 @@ function operateNums(e){
         tools.chosenOperator = e.target.textContent;
         topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
     }
+    else if(tools.numsBeforeOp == null){
+        tools.numsBeforeOp = 0;
+    }
     else if(tools.numsBeforeOp != null && tools.isOp == true && tools.numsAfterOp != null){
         calculate();
         cleanScreen()
@@ -96,7 +99,6 @@ function operateNums(e){
         calculate();
     }else{
     tools.chosenOperator = e.target.textContent;
-    //tools.numsBeforeOp = numArray.join("");
     numArray.length = 0;
     topDisplay.textContent = (tools.numsBeforeOp + tools.chosenOperator);
     bottomDisplay.textContent = "";
@@ -118,7 +120,7 @@ function cleanScreen(){
 }
 
 function calculate(first,op,second){
-   tools.calculatedNum = operate(parseInt(tools.numsBeforeOp),tools.chosenOperator,parseInt(tools.numsAfterOp)).toString();
+   tools.calculatedNum = operate(parseFloat(tools.numsBeforeOp),tools.chosenOperator,parseFloat(tools.numsAfterOp)).toString();
    tools.numsBeforeOp = tools.calculatedNum;
    tools.chosenOperator = null;
    tools.numsAfterOp = null;
@@ -126,8 +128,6 @@ function calculate(first,op,second){
    cleanScreen();
    numArray.length = 0;
    bottomDisplay.textContent = tools.calculatedNum;
-
-   //numArray = tools.calculatedNum.split('');
 }
 
 equalBtn.addEventListener('click',calculate);
