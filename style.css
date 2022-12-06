@@ -75,6 +75,7 @@ P{
     grid-template-columns: repeat(3,1fr);
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
 .btn-low{
@@ -87,7 +88,7 @@ P{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    /*flex-grow: 1;*/
 }
 
 button{
@@ -127,4 +128,29 @@ button:active{
     background-color: #9b1d1fb4;
     color: #d2d2d2;
     font-weight: bolder;
+}
+
+.bottom-display-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dlt-btn{
+    padding: 0;
+    margin: 0;
+    color:#3D2B3D;
+    font-weight: bolder;
+    text-shadow: 1px 1px #3d2b3d68;
+    flex: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dlt-btn:hover{
+    color: wheat;
+}
+
+.dlt-btn:active{
+    color: white;
+    text-shadow: 8px 8px 4px #3d2b3d68;
 }

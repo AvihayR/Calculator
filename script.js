@@ -116,7 +116,6 @@ function cleanScreen(){
     topDisplay.textContent = "";
     bottomDisplay.textContent = "";
     numArray.length = 0;
-    numArray.push(tools.calculatedNum);
 }
 
 function calculate(first,op,second){
@@ -142,9 +141,23 @@ function clear(){
 
 clearBtn.addEventListener('click',clear)
 
+const bottomDisplayContainer = displayScreen.querySelector('.bottom-display-container');
 
+function eraseOneNum(){
+    //erases last inputted number
+    numArray.pop(numArray.length);
+    if(tools.isOp == null){
+        tools.numsBeforeOp = bottomDisplay.textContent = numArray.join('');
+    }else{
+        tools.numsAfterOp = bottomDisplay.textContent = numArray.join('');
+    }
+};
 
-
-
-
+function addDeleteButton(){
+    const dltButton = document.createElement('p');
+    dltButton.classList.add('dlt-btn')
+    dltButton.textContent = "↶";
+    bottomDisplayContainer.appendChild(dltButton);
+    dltButton.addEventListener('click',eraseOneNum);
+};
 
