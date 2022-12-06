@@ -105,7 +105,7 @@ function operateNums(e){
     tools.isOp = true;
 
     };
-    
+    numArray.length = 0;
 };
 
 opButtons.forEach(button => {
@@ -121,11 +121,11 @@ function cleanScreen(){
 function calculate(first,op,second){
    tools.calculatedNum = operate(parseFloat(tools.numsBeforeOp),tools.chosenOperator,parseFloat(tools.numsAfterOp)).toString();
    tools.numsBeforeOp = tools.calculatedNum;
-   tools.chosenOperator = null;
+   //tools.chosenOperator = null;
    tools.numsAfterOp = null;
    bottomDisplay.textContent = tools.calculatedNum;
    cleanScreen();
-   numArray.length = 0;
+   numArray = tools.calculatedNum.split('');
    bottomDisplay.textContent = tools.calculatedNum;
 }
 
@@ -146,10 +146,11 @@ const bottomDisplayContainer = displayScreen.querySelector('.bottom-display-cont
 function eraseOneNum(){
     //erases last inputted number
     numArray.pop(numArray.length);
-    if(tools.isOp == null){
+    if(tools.isOp == false){
         tools.numsBeforeOp = bottomDisplay.textContent = numArray.join('');
     }else{
-        tools.numsAfterOp = bottomDisplay.textContent = numArray.join('');
+        tools.numsBeforeOp = bottomDisplay.textContent = numArray.join('');
+        tools.calculatedNum = null;
     }
 };
 
