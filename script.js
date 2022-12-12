@@ -12,8 +12,8 @@ const equalBtn = document.body.querySelector('.equals');
 const clearBtn = document.body.querySelector('.clear');
 
 
+//Tools that hold actual data:
 let numArray = [];
-
 let tools = {
     chosenOperator: undefined,
     numsBeforeOp: null,
@@ -22,7 +22,7 @@ let tools = {
     isOp: false,
 };
 
-
+//Mathematical operators functions: 
 function add(firstNum,secondNum){
     return firstNum + secondNum;
 };
@@ -58,7 +58,8 @@ function operate(firstNum,op,secondNum){
     }
 };
 
-
+//function that adds a clicked number into the calculator's screen
+//also stores numbers in tools object according to order (before or after operator)
 function populateDisplay(e){
     if(numArray.includes(".") && e.target.textContent == "."){
         return; 
@@ -69,6 +70,7 @@ function populateDisplay(e){
         numArray.push(e.target.textContent);
         tools.numsBeforeOp = bottomDisplay.textContent = numArray.join("");
     }
+    addDeleteButton();
 }
 
 numButtons.forEach(button => {
@@ -76,6 +78,8 @@ numButtons.forEach(button => {
 });
 
 
+//function for operator buttons - divides nums before the op was chosen and after,
+//will call "calculate" function if the operator was chosen already.
 function operateNums(e){
     if(tools.numsAfterOp == null && tools.isOp == true){
         tools.chosenOperator = e.target.textContent;
@@ -106,22 +110,26 @@ function operateNums(e){
 
     };
     numArray.length = 0;
+    addDeleteButton();
 };
 
 opButtons.forEach(button => {
     button.addEventListener('click',operateNums);
 })
 
+
+//cleans calculator's screen - not the same as clear function
 function cleanScreen(){
     topDisplay.textContent = "";
     bottomDisplay.textContent = "";
     numArray.length = 0;
-}
+};
 
+//runs operate function on stored nums from previous functions, and stores the calculated num in tools.calculatedNum
+//stores the data in such a way that the calculator will be functional after one calculate or more
 function calculate(first,op,second){
    tools.calculatedNum = operate(parseFloat(tools.numsBeforeOp),tools.chosenOperator,parseFloat(tools.numsAfterOp)).toString();
    tools.numsBeforeOp = tools.calculatedNum;
-   //tools.chosenOperator = null;
    tools.numsAfterOp = null;
    bottomDisplay.textContent = tools.calculatedNum;
    cleanScreen();
@@ -131,7 +139,7 @@ function calculate(first,op,second){
 
 equalBtn.addEventListener('click',calculate);
 
-
+//cleans screen + any data stored in tools object and numArray upon clicking "C" button.
 function clear(){
     for(let property in tools){
         tools[property] = null;
@@ -143,22 +151,29 @@ clearBtn.addEventListener('click',clear)
 
 const bottomDisplayContainer = displayScreen.querySelector('.bottom-display-container');
 
+//erase the last input number 
 function eraseOneNum(){
-    //erases last inputted number
     numArray.pop(numArray.length);
     if(tools.isOp == false){
         tools.numsBeforeOp = bottomDisplay.textContent = numArray.join('');
     }else{
-        tools.numsBeforeOp = bottomDisplay.textContent = numArray.join('');
+        tools.numsAfterOp = bottomDisplay.textContent = numArray.join('');
         tools.calculatedNum = null;
     }
 };
-
+//create & renders the delete button to screen upon calling the function , on click runs erase func
+//if element rendered already - removes it from DOM
 function addDeleteButton(){
-    const dltButton = document.createElement('p');
+    let dltButton = document.createElement('p');
     dltButton.classList.add('dlt-btn')
     dltButton.textContent = "↶";
-    bottomDisplayContainer.appendChild(dltButton);
-    dltButton.addEventListener('click',eraseOneNum);
+    if(numArray.length == 0){
+        dltButton = bottomDisplayContainer.querySelector('.dlt-btn');
+        bottomDisplayContainer.removeChild(dltButton);
+    }else if(!bottomDisplayContainer.querySelector('.dlt-btn') & numArray.length != 0 ){
+        bottomDisplayContainer.appendChild(dltButton);
+        dltButton.addEventListener('click',eraseOneNum);
 };
+}
 
+//setInterval(addDeleteButton, 1000);
