@@ -7,8 +7,8 @@ body{
     min-height: 100%;
     font-family: sans-serif;
     text-transform: uppercase;
-
 }
+
 h3{
     padding: 0;
     margin: 0;
@@ -56,6 +56,11 @@ P{
     justify-content: flex-start;
     align-items: center;
     color: #CBEFB6;
+}
+
+p.bottom-display {
+    transition: 3s;
+    transform: 3s;
 }
 
 .top-display{

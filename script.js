@@ -70,7 +70,7 @@ function populateDisplay(e){
         numArray.push(e.target.textContent);
         tools.numsBeforeOp = bottomDisplay.textContent = numArray.join("");
     }
-    addDeleteButton();
+    addOrRemoveDLTButton();
 }
 
 numButtons.forEach(button => {
@@ -110,7 +110,7 @@ function operateNums(e){
 
     };
     numArray.length = 0;
-    addDeleteButton();
+    addOrRemoveDLTButton();
 };
 
 opButtons.forEach(button => {
@@ -131,13 +131,21 @@ function calculate(first,op,second){
    tools.calculatedNum = operate(parseFloat(tools.numsBeforeOp),tools.chosenOperator,parseFloat(tools.numsAfterOp)).toString();
    tools.numsBeforeOp = tools.calculatedNum;
    tools.numsAfterOp = null;
-   bottomDisplay.textContent = tools.calculatedNum;
    cleanScreen();
    numArray = tools.calculatedNum.split('');
    bottomDisplay.textContent = tools.calculatedNum;
-}
+};
 
-equalBtn.addEventListener('click',calculate);
+//calcualteOnce func for not breaking eraseOneNum func while pressing "=" button and trying to erase the result.
+function calculateOnce(first,op,second){
+    tools.calculatedNum = operate(parseFloat(tools.numsBeforeOp),tools.chosenOperator,parseFloat(tools.numsAfterOp)).toString();
+    cleanScreen()
+    calculate()
+    tools.chosenOperator = null;
+    tools.isOp = false;
+};
+
+equalBtn.addEventListener('click',calculateOnce);
 
 //cleans screen + any data stored in tools object and numArray upon clicking "C" button.
 function clear(){
@@ -154,16 +162,17 @@ const bottomDisplayContainer = displayScreen.querySelector('.bottom-display-cont
 //erase the last input number 
 function eraseOneNum(){
     numArray.pop(numArray.length);
-    if(tools.isOp == false){
+    if(!tools.isOp){
         tools.numsBeforeOp = bottomDisplay.textContent = numArray.join('');
     }else{
         tools.numsAfterOp = bottomDisplay.textContent = numArray.join('');
         tools.calculatedNum = null;
     }
+    addOrRemoveDLTButton();
 };
 //create & renders the delete button to screen upon calling the function , on click runs erase func
-//if element rendered already - removes it from DOM
-function addDeleteButton(){
+//if element rendered already & numArray is empty - removes it from DOM
+function addOrRemoveDLTButton(){
     let dltButton = document.createElement('p');
     dltButton.classList.add('dlt-btn')
     dltButton.textContent = "↶";
@@ -176,4 +185,3 @@ function addDeleteButton(){
 };
 }
 
-//setInterval(addDeleteButton, 1000);
