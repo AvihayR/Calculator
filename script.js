@@ -128,10 +128,12 @@ function cleanScreen(){
 //runs operate function on stored nums from previous functions, and stores the calculated num in tools.calculatedNum
 //stores the data in such a way that the calculator will be functional after one calculate or more
 function calculate(first,op,second){
+    if(!tools.isOp == true){return};
+
     for(const tool in tools){
         if(tools[tool] == '' || tools[tool] == null){
-            tools[tool] = 0;}
-        };
+            tools[tool] = 0;}};
+
    tools.calculatedNum = operate(parseFloat(tools.numsBeforeOp),tools.chosenOperator,parseFloat(tools.numsAfterOp)).toString();
    tools.numsBeforeOp = tools.calculatedNum;
    tools.numsAfterOp = null;
@@ -187,4 +189,15 @@ function addOrRemoveDLTButton(){
         dltButton.addEventListener('click',eraseOneNum);
 };
 }
+
+
+//Keyboard support feature: 
+const allBtns = document.body.querySelectorAll('button');
+
+function show(e){
+    allBtns.forEach((btn)=>{if(Array.from(btn.classList).includes(e.key)){btn.click()}});
+}
+
+document.body.addEventListener('keyup',show)
+
 
