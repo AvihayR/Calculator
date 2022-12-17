@@ -180,6 +180,7 @@ function eraseOneNum(){
 function addOrRemoveDLTButton(){
     let dltButton = document.createElement('p');
     dltButton.classList.add('dlt-btn')
+    dltButton.classList.add('Backspace')
     dltButton.textContent = "↶";
     if(numArray.length == 0){
         dltButton = bottomDisplayContainer.querySelector('.dlt-btn');
@@ -192,12 +193,15 @@ function addOrRemoveDLTButton(){
 
 
 //Keyboard support feature: 
+//Translates keyup to a click on the right element
 const allBtns = document.body.querySelectorAll('button');
-
-function show(e){
+function keyboardTranslate(e){
     allBtns.forEach((btn)=>{if(Array.from(btn.classList).includes(e.key)){btn.click()}});
+    //dlt-btn support:
+    let dltButton = document.querySelector('p.dlt-btn')
+    if(Array.from(dltButton.classList).includes(e.key)){dltButton.click()};
 }
 
-document.body.addEventListener('keyup',show)
+document.body.addEventListener('keyup',keyboardTranslate)
 
 
