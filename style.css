@@ -1,23 +1,72 @@
 body{
-
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100%;
     font-family: sans-serif;
     text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #635d5cd8;
+    min-width: 100%;
+    min-height: 3.5rem;
+    max-height: 3.5rem;
+    border-bottom: #bdbdbd 7px solid;
+    transition: 0.6s;
 }
 
 h3{
     padding: 0;
     margin: 0;
+    font-size: 1.6rem;
+    color: #cccccc;
+    transition: 0.70s;
+    text-shadow: #645a59 4px 3px 2px;
+}
+
+h3:hover{
+    font-size: 1.8rem;
+    text-shadow: #827876 2px 2px 2px;
 }
 
 P{
     padding: 0;
     margin: 0;
+    font-size: 1.9rem;
 }
+
+.display p{
+    font-size: 1.3rem;
+}
+
+.head-p{
+    font-size: max(1.2vw, 12px);
+    font-weight:light;
+    color: #d6d6d6;
+    transition: 0.90s;
+    text-shadow: #645a59 4px 3px 2px;
+}
+
+.head-p:hover{
+    font-size: max(1.3vw, 13px);
+    text-shadow: #827876 2px 1px 2px;
+}
+
+
+.center-container{
+    padding: 2rem 8vw;
+    box-shadow: #e7e7e7 2px 2px 30px;
+    border-radius: 45px;
+    margin-top: auto;
+}
+
 .main{
     display: flex;
     flex-direction: column;
@@ -33,10 +82,10 @@ P{
 .display{
     background-color: #635D5C;
     opacity: 0.8;
-    min-width: 90%;
-    max-width: 90%;
-    min-height: 2.3em;
-    max-height: 2.3em;
+    min-width: 93%;
+    max-width: 93%;
+    min-height: 2.9em;
+    max-height: 2.9em;
     padding: 0.3rem;
     box-shadow: 3px 3px rgba(127, 125, 125, 0.519);
     border-radius: 0.4rem;
@@ -46,6 +95,7 @@ P{
     flex-grow: 0;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 10rem;
 }
 
 .bottom-display{
@@ -93,7 +143,6 @@ p.bottom-display {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*flex-grow: 1;*/
 }
 
 button{
@@ -102,13 +151,17 @@ button{
     border: solid 1px  #121212;
     color: #FBFBFF;
     background-color: #635D5C;
-    box-shadow: 4px 4px rgba(24, 24, 24, 0.348);
+    box-shadow: 4px 4px rgba(24, 24, 24, 0.438);
     display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
     padding: 0.7em 0.9em;
     transition: transform 70ms, box-shadow 50ms;
+    min-width: 3rem;
+    min-height: 3.2rem;
+    font-size: 1.1rem;
+    font-weight: lighter;
 }
 
 button:hover{
@@ -159,3 +212,29 @@ button:active{
     color: white;
     text-shadow: 8px 8px 4px #3d2b3d68;
 }
+
+.footer{
+    display: flex;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 3vw;
+    background-color: #635d5cd8; 
+    justify-content: center;
+    align-items: center;
+    border-top: #CBEFB6 9px solid;
+    gap: 12px;
+    padding: 0.5em;
+    margin-top: auto;
+}
+
+.footer-p{
+    font-size: 15px;
+    color: #CBEFB6;
+}
+
+.footer-a{
+    font-size: 15px;
+    color: #9b1d1fd7;
+    font-weight: bolder;
+}
+
