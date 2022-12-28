@@ -2,6 +2,7 @@ body{
     min-height: 100vh;
     margin: 0;
     display: flex;
+    flex: 0;
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
@@ -14,11 +15,10 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #635d5cd8;
+    background-color: #3D2B3D;
     min-width: 100%;
-    min-height: 3.5rem;
-    max-height: 3.5rem;
-    border-bottom: #bdbdbd 7px solid;
+    min-height: 5rem;
+    border-bottom: #CBEFB6 7px solid;
     transition: 0.6s;
 }
 
@@ -26,14 +26,13 @@ h3{
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    color: #cccccc;
+    color: #726b6a;
     transition: 0.70s;
-    text-shadow: #645a59 4px 3px 2px;
+    text-shadow: #121212 4px 3px 2px;
 }
 
 h3:hover{
     font-size: 1.8rem;
-    text-shadow: #827876 2px 2px 2px;
 }
 
 P{
@@ -49,19 +48,18 @@ P{
 .head-p{
     font-size: max(1.2vw, 12px);
     font-weight:light;
-    color: #d6d6d6;
+    color: #CBEFB6;
     transition: 0.90s;
-    text-shadow: #645a59 4px 3px 2px;
+    text-shadow: #1c171c 4px 3px 2px;
 }
 
 .head-p:hover{
     font-size: max(1.3vw, 13px);
-    text-shadow: #827876 2px 1px 2px;
 }
 
 
 .center-container{
-    padding: 2rem 8vw;
+    padding: 5vw 7vw;
     box-shadow: #e7e7e7 2px 2px 30px;
     border-radius: 45px;
     margin-top: auto;
@@ -170,7 +168,7 @@ button:hover{
     filter: brightness(120%);
 }
 
-button:active{
+button:active{padding: 0.5em;
     transform: translate(3px,3px);
     box-shadow: 1px 1px #121212;
     opacity: 0.8;
@@ -217,13 +215,12 @@ button:active{
     display: flex;
     min-width: 100%;
     max-width: 100%;
-    min-height: 3vw;
+    min-height: 3rem;
     background-color: #635d5cd8; 
     justify-content: center;
     align-items: center;
     border-top: #CBEFB6 9px solid;
     gap: 12px;
-    padding: 0.5em;
     margin-top: auto;
 }
 
