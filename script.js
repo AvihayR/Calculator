@@ -181,7 +181,7 @@ function addOrRemoveDLTButton(){
     let dltButton = document.createElement('p');
     dltButton.classList.add('dlt-btn')
     dltButton.classList.add('Backspace')
-    dltButton.textContent = "↶";
+    dltButton.textContent = "↩";
     if(numArray.length == 0){
         dltButton = bottomDisplayContainer.querySelector('.dlt-btn');
         bottomDisplayContainer.removeChild(dltButton);

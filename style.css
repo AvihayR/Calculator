@@ -195,7 +195,7 @@ button:active{padding: 0.5em;
     padding: 0;
     margin: 0;
     color:#3D2B3D;
-    font-weight: bolder;
+    font-weight: 400;
     text-shadow: 1px 1px #3d2b3d68;
     flex: 0;
     cursor: pointer;
@@ -203,7 +203,7 @@ button:active{padding: 0.5em;
 }
 
 .dlt-btn:hover{
-    color: wheat;
+    color: #CBEFB6;
 }
 
 .dlt-btn:active{
