@@ -30,6 +30,8 @@ h3{
     color: #726b6a;
     transition: 0.70s;
     text-shadow: #121212 4px 3px 2px;
+    font-family: 'DotGothic16', sans-serif,sans-serif,system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    letter-spacing: .2rem;
 }
 
 h3:hover{
@@ -215,7 +217,7 @@ button:active{padding: 0.5em;
     display: flex;
     min-width: 100%;
     max-width: 100%;
-    min-height: 3rem;
+    min-height: 6vh;
     background-color: #635d5cd8; 
     justify-content: center;
     align-items: center;
@@ -225,14 +227,29 @@ button:active{padding: 0.5em;
 }
 
 .footer-p{
-    font-size: max(2vw, 1.6rem);
+    font-size: max(2.2vw, 1.7rem);
     color: #CBEFB6;
     font-family: 'Libre Barcode 39 Text', cursive;
+    text-shadow: #3D2B3D 1px 2px;
 }
 
 .footer-a{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #9b1d1fd7;
     font-weight: bolder;
+    text-shadow:#353232 2px 2px;
+    margin-bottom: 5px;
+    transition: transform 80ms, text-shadow 60ms;
+    text-decoration: none;
 }
 
+.footer-a:hover{
+    filter: brightness(140%);
+    text-decoration: underline;
+}
+
+.footer-a:active{
+    transform: translate(2px,1px);
+    filter: brightness(160%);
+    text-shadow:#353232 1px 1px;
+}
