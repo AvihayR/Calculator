@@ -1,11 +1,12 @@
 body{
     min-height: 100vh;
+    max-height: 100vh;
     margin: 0;
     display: flex;
     flex: 0;
     flex-direction: column;
     align-items: center;
-    font-family: sans-serif;
+    font-family: sans-serif,system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-transform: uppercase;
     box-sizing: border-box;
 }
@@ -25,14 +26,14 @@ body{
 h3{
     padding: 0;
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #726b6a;
     transition: 0.70s;
     text-shadow: #121212 4px 3px 2px;
 }
 
 h3:hover{
-    font-size: 1.8rem;
+    font-size: 2.2rem;
 }
 
 P{
@@ -41,12 +42,16 @@ P{
     font-size: 1.9rem;
 }
 
-.display p{
-    font-size: 1.3rem;
+
+p.top-display,p.bottom-display{
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1rem;
+    font-weight: 500;
 }
 
 .head-p{
-    font-size: max(1.2vw, 12px);
+    font-size: max(1vw, 11px);
     font-weight:light;
     color: #CBEFB6;
     transition: 0.90s;
@@ -59,7 +64,7 @@ P{
 
 
 .center-container{
-    padding: 5vw 7vw;
+    padding: 7vh 7vw;
     box-shadow: #e7e7e7 2px 2px 30px;
     border-radius: 45px;
     margin-top: auto;
@@ -68,7 +73,6 @@ P{
 .main{
     display: flex;
     flex-direction: column;
-    flex-grow: 0;
     max-width: 90%;
     padding: 15px 10px;
     border-radius: 1em;
@@ -106,10 +110,6 @@ P{
     color: #CBEFB6;
 }
 
-p.bottom-display {
-    transition: 3s;
-    transform: 3s;
-}
 
 .top-display{
     color: #dddddd;
@@ -220,17 +220,18 @@ button:active{padding: 0.5em;
     justify-content: center;
     align-items: center;
     border-top: #CBEFB6 9px solid;
-    gap: 12px;
+    gap: 8px;
     margin-top: auto;
 }
 
 .footer-p{
-    font-size: 15px;
+    font-size: max(2vw, 1.6rem);
     color: #CBEFB6;
+    font-family: 'Libre Barcode 39 Text', cursive;
 }
 
 .footer-a{
-    font-size: 15px;
+    font-size: 1.2rem;
     color: #9b1d1fd7;
     font-weight: bolder;
 }
